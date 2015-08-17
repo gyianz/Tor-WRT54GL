@@ -1,0 +1,13 @@
+
+Scan Time:     2015-08-17 12:38:50
+Signatures:    193
+Target File:   /home/parallels/Desktop/dd-wrt.v24-12548_NEWD_mini.bin
+MD5 Checksum:  f524a31f8e0b53217369802959309c89
+
+DECIMAL   	HEX       	DESCRIPTION
+-------------------------------------------------------------------------------------------------------
+0         	0x0       	TRX firmware header, little endian, header size: 28 bytes,  image size: 2936832 bytes, CRC32: 0x5C62C5CE flags/version: 0x10000
+28        	0x1C      	gzip compressed data, from Unix, NULL date: Thu Jan  1 09:30:00 1970, max compression
+2512      	0x9D0     	LZMA compressed data, properties: 0x6E, dictionary size: 2097152 bytes, uncompressed size: 2965504 bytes
+928768    	0xE2C00   	Squashfs filesystem, little endian, DD-WRT signature, version 3.0, size: 2005755 bytes,  553 inodes, blocksize: 131072 bytes, created: Wed Jul 22 15:40:27 2009 
+
