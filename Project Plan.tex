@@ -7,18 +7,18 @@
 	
 	\textbf Group Member :
 	\begin{enumerate}
-		\item a1673755 Min Zan 
 		\item a1675750 Dicky Chiang 
 		\item a1681939 Pang Zi Yang
+		\item a1673755 Min Zan 
 	\end{enumerate}
 	
 	\section{Introduction}
 	
 	 Current implementations of Tor require the users to install software on their computers. In this project, our goal is to implement the Tor server onto the router itself so that any client that is connected using this particular router will be anonymized without needing them to install anything on their local client.
 	
-	
 	\section{Background}
-	The firmware running on the router will be Linux based hence it is similar to running a lightweight operating system with basic functionality. Tor is an encryption technology that hides your browsing activities and also an anonymity network that protects its users' privacy by hiding their IP address.
+	
+	The firmware running on the router will be Linux based hence it is similar to running a lightweight operating system with basic functionality. Tor is an encryption technology that hides your browsing activities and also an anonymity network that protects its users' privacy by hiding their IP address. SSH is a secure network protocol to initiate a remote shell session on a local host. This allows us to run terminal commands without having to be physically present.
 	
 	\section{Problem Description}
 	
@@ -26,21 +26,26 @@
 	
 	\section{Approach}
 	
-	The firmware is Linux based and also the firmware modification kit
-	Currently we have two different approach to achieve this. They are :
+	The firmware and the modification kit provided are both Linux based. Hence. our project development will be done solely on a Debian-based operating system to ensure consistency across the team. We will be using a public repository on GitHub to maintain our code.\newline
+	
+	We have identified two methods that we are going to use to approach our problem due to our constraint of having only one router. This is to ensure ongoing development even though when one of our team member does not have access to the router
 	
 	\begin{enumerate}
-		\item  We first extract the firmware downloaded for our router \emph{WRT54GL} using the firmware modification kit then edit the root file system code and repackage it to be flashed onto the router. There is two versions of the firmware available to be modified and they are DD-WRT and OPENWRT. There are also other open source firmware such as Tomato but we are not using it. The firmware used is a open sourced Linux based firmware.
+		\item  We first extract the firmware downloaded for our router \emph{WRT54GL} using the firmware modification kit then edit the root file system code and repackage it to be flashed onto the router. There is two versions of the firmware available to be modified and they are DD-WRT and OPENWRT. There are also other open source firmware such as Tomato but we are not using it. 
 		
 		\item Since it is a Linux based firmware, it runs a very lightweight operating system so this means that we can SSH into the router to install the Tor package to enable it as a Tor server. This approach will allow us to modify the root file system directly on the router without flashing the firmware everytime a modification is done. We can also manage our filesystem size to be constantly under 4 megabytes. We can also remove certain packages included in the firmware that we deem unnecessary to give us more storage space to work with. We can do this using the first approach by creating a template firmware and work from there. 
+		
 	\end{enumerate}
 	
+	\newpage
 	\section{Status}
 	
-	All the group members have installed a version of Linux distribution on their local machine to allow them to run scripts from the firmware modification kit as it works well only with Linux but not Mac OSX. We have obtained the firmware files needed for the router and also the firmware modification kit used to extract the firmware. We've managed to extract the firmware into its individual files and have looked through the packages that are installed on the firmware. We believe some of this packages can be removed to give us more storage to work with as we are confined to only 4MB of flash.\newline 
+	All the group members have installed a version of Linux distribution on their local machine to allow them to run scripts from the firmware modification kit as it works well only with Linux but not Mac OSX. We have obtained the firmware files needed for the router and also the firmware modification kit used to extract the firmware. We've managed to extract the firmware into its individual files and have looked through the file system tree that is on the firmware. We believe some of the package installed on the firmware can be removed to give us more storage to work with as we are confined to only 4MB of flash.\newline 
 	
 	We've setup a GitHub repository to share all our code and modification to the firmware. We've done research on how to implement the Tor server on the router and also figured out a way to SSH into the router. \newline 
 	
 	We could install the Tor server using the \textbf{sudo apt-get install} command after SSH-ing into router. We begin looking into how to edit the config file for our DHCP server then repackage it into a firmware to be flashed.
+	
+	We have also done research looking into existing implementations on different hardware. One of the most notable hardware is running the Tor server and OpenVPN on a Raspberry Pi. We are planning to take examples from different sources and modifying them to fit into our implementation. 
 	
 \end{document}
