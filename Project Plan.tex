@@ -1,0 +1,46 @@
+\documentclass[12pt]{article}
+\begin{document}
+	\begin{quote}
+		\centering
+		\textbf {Project Plan}
+	\end{quote}
+	
+	\textbf Group Member :
+	\begin{enumerate}
+		\item a1673755 Min Zan 
+		\item a1675750 Dicky Chiang 
+		\item a1681939 Pang Zi Yang
+	\end{enumerate}
+	
+	\section{Introduction}
+	
+	 Current implementations of Tor require the users to install software on their computers. In this project, our goal is to implement the Tor server onto the router itself so that any client that is connected using this particular router will be anonymized without needing them to install anything on their local client.
+	
+	
+	\section{Background}
+	The firmware running on the router will be Linux based hence it is similar to running a lightweight operating system with basic functionality. Tor is an encryption technology that hides your browsing activities and also an anonymity network that protects its users' privacy by hiding their IP address.
+	
+	\section{Problem Description}
+	
+	The problem we are trying to solve with this project is that , most Tor implementations requires client to install their own version of Tor onto their local machine to use the Tor service. This  process is cumbersome as clients need to launch the Tor application everytime they want to browse the Internet anonymously. The startup for the Tor application takes a very long time. Installing a Tor application locally is also not suitable when you have embedded devices that has limited amount of storage and also sometimes there might not be a working application for your operating system distribution. By having the router running the Tor server , any device regardless of their nature that connects to this router will have the connection encrytped and anonymized. 
+	
+	\section{Approach}
+	
+	The firmware is Linux based and also the firmware modification kit
+	Currently we have two different approach to achieve this. They are :
+	
+	\begin{enumerate}
+		\item  We first extract the firmware downloaded for our router \emph{WRT54GL} using the firmware modification kit then edit the root file system code and repackage it to be flashed onto the router. There is two versions of the firmware available to be modified and they are DD-WRT and OPENWRT. There are also other open source firmware such as Tomato but we are not using it. The firmware used is a open sourced Linux based firmware.
+		
+		\item Since it is a Linux based firmware, it runs a very lightweight operating system so this means that we can SSH into the router to install the Tor package to enable it as a Tor server. This approach will allow us to modify the root file system directly on the router without flashing the firmware everytime a modification is done. We can also manage our filesystem size to be constantly under 4 megabytes. We can also remove certain packages included in the firmware that we deem unnecessary to give us more storage space to work with. We can do this using the first approach by creating a template firmware and work from there. 
+	\end{enumerate}
+	
+	\section{Status}
+	
+	All the group members have installed a version of Linux distribution on their local machine to allow them to run scripts from the firmware modification kit as it works well only with Linux but not Mac OSX. We have obtained the firmware files needed for the router and also the firmware modification kit used to extract the firmware. We've managed to extract the firmware into its individual files and have looked through the packages that are installed on the firmware. We believe some of this packages can be removed to give us more storage to work with as we are confined to only 4MB of flash.\newline 
+	
+	We've setup a GitHub repository to share all our code and modification to the firmware. We've done research on how to implement the Tor server on the router and also figured out a way to SSH into the router. \newline 
+	
+	We could install the Tor server using the \textbf{sudo apt-get install} command after SSH-ing into router. We begin looking into how to edit the config file for our DHCP server then repackage it into a firmware to be flashed.
+	
+\end{document}
